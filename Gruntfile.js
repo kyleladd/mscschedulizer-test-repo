@@ -69,6 +69,21 @@ module.exports = function(grunt) {
         }
       }
     }
+  },
+    connect: {
+      test: {
+        options: {
+          port: process.env.PORT || 8081,
+          base: './',
+          keepalive: true
+        }
+      }
+    },
+    karma: {
+      unit: {
+        configFile: 'karma.conf.js',
+        singleRun: true
+      }
   });
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-watch');
@@ -76,7 +91,10 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-browserify');
   grunt.loadNpmTasks('grunt-bower-task');
+  grunt.loadNpmTasks('grunt-contrib-connect');
+  grunt.loadNpmTasks('grunt-karma');
 
   grunt.registerTask('default', ['copy','browserify','uglify','cssmin']);
   grunt.registerTask('dev', ['default','watch']);
+  grunt.registerTask('test', ['connect','karma']);
 };
