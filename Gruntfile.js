@@ -68,14 +68,12 @@ module.exports = function(grunt) {
           return dest + src.replace('.example','');
         }
       }
-    }
-  },
+    },
     connect: {
       test: {
         options: {
           port: process.env.PORT || 8081,
-          base: './',
-          keepalive: true
+          base: './'
         }
       }
     },
@@ -84,6 +82,7 @@ module.exports = function(grunt) {
         configFile: 'karma.conf.js',
         singleRun: true
       }
+    }
   });
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-watch');

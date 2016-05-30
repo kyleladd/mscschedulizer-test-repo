@@ -9,7 +9,8 @@ module.exports = function(config) {
 
       // frameworks to use
       // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-      frameworks: ['jasmine'],
+      frameworks: ['mocha', 'browserify'],
+      // frameworks: ['jasmine', 'browserify'],
 
 
       // list of files / patterns to load in the browser
@@ -26,6 +27,7 @@ module.exports = function(config) {
       // preprocess matching files before serving them to the browser
       // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
       preprocessors: {
+        'karma_tests/*.js': [ 'browserify' ]
       },
 
 
@@ -71,7 +73,8 @@ module.exports = function(config) {
       configuration.browsers = ['Chrome_travis_ci'];
     }
     else{
-      configuration.browsers = ['Firefox','Chrome'];
+      // 'Firefox',
+      configuration.browsers = ['Chrome'];
     }
 
 
