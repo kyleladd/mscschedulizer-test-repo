@@ -5,6 +5,7 @@ var base_url = "http://localhost:8081/";
 
 var originalTimeout;
 describe("Hello World Server", function() {
+  this.timeout(15000);
   beforeEach(function() {
     // originalTimeout = jasmine.DEFAULT_TIMEOUT_INTERVAL;
     // jasmine.DEFAULT_TIMEOUT_INTERVAL = 10000;
