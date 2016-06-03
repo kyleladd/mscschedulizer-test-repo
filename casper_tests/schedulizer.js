@@ -9,9 +9,9 @@ casper.test.begin('MSCschedulizer', 2, function suite(test) {
     });
     casper.then(function() {
         test.assertUrlMatch(/select-classes.html/, "on the select classes page");
-        this.wait(1000, function() {
-            this.echo("I've waited for a second.");
-        });
+    });
+    casper.then(function() {
+        this.waitForSelectorTextChange("#dept_class_list");
     });
     casper.then(function() {
         this.capture('select-classes.png');
